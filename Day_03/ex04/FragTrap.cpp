@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 09:29:55 by mandric           #+#    #+#             */
-/*   Updated: 2021/04/06 11:24:04 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 12:54:43 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,18 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "Fragtrap name constructor" << std::endl;
     std::string tabPhrase[5] = {"Hi ! Sooooo... how are things?", "Bootup sequence Completed! Who's up for Beer Pong???", "Hey, best friend!", "Let me teach you the ways of magic!", "Directive one: Protect humanity!"};
+    this->_hitPoint = 100;
+    this->_maxHitPoint = 100;
+    this->_energyPoint = 100;
+    this->_maxEnergyPoint = 100;
+    this->_level = 1;
+    this->_meleeAttackDmg = 30;
+    this->_rangedAttackDmg = 20;
+    this->_armorDmgReduction = 5;
     std::cout << tabPhrase[this->randomizer(5)] << std::endl;
+    std::cout << this->_rangedAttackDmg << this << std::endl;
     return;
+
 }
 
 FragTrap::FragTrap() : ClapTrap()
@@ -27,6 +37,15 @@ FragTrap::FragTrap() : ClapTrap()
     std::string tabPhrase[5] = {"Hi ! Sooooo... how are things?", "Bootup sequence Completed! Who's up for Beer Pong???", "Hey, best friend!", "Let me teach you the ways of magic!", "Directive one: Protect humanity!"};
     std::cout << tabPhrase[this->randomizer(5)] << std::endl;
     return;
+}
+
+FragTrap::FragTrap(int diamond)
+{
+    diamond += 1;
+    this->_hitPoint = 100;
+    this->_maxHitPoint = 100;
+    this->_rangedAttackDmg = 20;
+    this->_armorDmgReduction = 5;
 }
 
 FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src)
@@ -38,6 +57,12 @@ FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src)
 FragTrap::~FragTrap()
 {
     std::cout << "Fragtrap destructor" << std::endl;
+    return;
+}
+
+void    FragTrap::rangedAttack(std::string const & target)
+{
+    std::cout << this->_name << " attacks " << target << " at range like a big boy fragtrap, causing " << this->_rangedAttackDmg << " points of damage!" << std::endl;
     return;
 }
 

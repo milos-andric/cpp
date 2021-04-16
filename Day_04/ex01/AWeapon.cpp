@@ -66,4 +66,9 @@ int					AWeapon::getDamage(void) const
 	return(this->_damage);
 }
 
+std::string					AWeapon::getSound(void) const
+{
+	return(this->_sound);
+}
+
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 14:32:05 by mandric           #+#    #+#             */
-/*   Updated: 2021/04/06 11:23:27 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 13:42:53 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,7 @@
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
     std::cout << "Claptrap name constructor" << std::endl;
-    this->_hitPoint = 100;
-    this->_maxHitPoint = 100;
-    this->_energyPoint = 100;
-    this->_maxEnergyPoint = 100;
-    this->_level = 1;
-    this->_meleeAttackDmg = 30;
-    this->_rangedAttackDmg = 20;
-    this->_armorDmgReduction = 5;
+
     return;
 }
 

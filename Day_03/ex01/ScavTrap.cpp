@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 13:28:50 by mandric           #+#    #+#             */
-/*   Updated: 2021/04/06 11:34:02 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 09:22:53 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ScavTrap::ScavTrap(std::string name) : _name(name)
 {
+    std::cout << "ScavTrap name constructor" << std::endl;
     std::string tabPhrase[5] = {"Greetings Traveller!", "*beeeeeeeeeeeeep* Hi!", "Good as new, I think. Am I leaking?", "On my Waaaayyyyy !", "Hello fellow traveller!"};
     
     this->_hitPoint = 100;
@@ -31,6 +32,7 @@ ScavTrap::ScavTrap(std::string name) : _name(name)
 
 ScavTrap::ScavTrap()
 {
+    std::cout << "ScavTrap basic constructor" << std::endl;
     int num = this->randomizer(99999);
     std::string randName = std::to_string(num);
     randName = "Robot_" + randName;
@@ -53,12 +55,14 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(ScavTrap const & src)
 {
+    std::cout << "scavtrap copy constructor" << std::endl;
     *this = src;
     return;
 }
 
 ScavTrap::~ScavTrap()
 {
+    std::cout << "scavtrap destructor" << std::endl;
     return;
 }
 
@@ -112,7 +116,7 @@ void    ScavTrap::beRepaired(unsigned int amount)
 
 void    ScavTrap::challengeNewcomer(std::string const & target)
 {
-    if (this->_energyPoint >= 25)
+    if (this->_energyPoint >= 25) 
     {
         std::string challenge[5] = {" to a game of connect 4...", " to a trial by combat!", " to \"who can scream the loudest!\"", " to a tic-tac-toe showdown", " to a \"mining bitcoin speedrun!\""};
 

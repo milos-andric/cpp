@@ -15,12 +15,13 @@ class PlasmaRifle : public AWeapon
 		PlasmaRifle( PlasmaRifle const & src );
 		~PlasmaRifle();
 
+		void		attack(void) const;
 		PlasmaRifle &		operator=( PlasmaRifle const & rhs );
 
 	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, PlasmaRifle const & i );
+// std::ostream &			operator<<( std::ostream & o, PlasmaRifle const & i );
 
 #endif /* ***************************************************** PLASMARIFLE_H */

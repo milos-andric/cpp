@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 10:27:16 by mandric           #+#    #+#             */
-/*   Updated: 2021/04/06 11:24:56 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 12:54:43 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "Ninjatrap name constructor" << std::endl;
     std::string tabPhrase[5] = {"*appears out of nowhere* good evening.", "I've been meditating for hours bruh.", "What is my purpose ?", "I like killing people.", "Can i kill someone real quick ?"};
-    
-
+    this->_name = name;
+    this->_level = 1;
     this->_hitPoint = 60;
     this->_maxHitPoint = 60;
     this->_energyPoint = 120;
@@ -25,6 +25,7 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
     this->_meleeAttackDmg = 60;
     this->_rangedAttackDmg = 5;
     this->_armorDmgReduction = 0;
+
 
     std::cout << tabPhrase[this->randomizer(5)] << std::endl;
     return;
@@ -39,12 +40,22 @@ NinjaTrap::NinjaTrap() : ClapTrap()
     this->_maxHitPoint = 60;
     this->_energyPoint = 120;
     this->_maxEnergyPoint = 120;
-    this->_meleeAttackDmg = 20;
+    this->_meleeAttackDmg = 60;
     this->_rangedAttackDmg = 5;
     this->_armorDmgReduction = 0;
 
     std::cout << tabPhrase[this->randomizer(5)] << std::endl;
     return;
+}
+
+NinjaTrap::NinjaTrap(int diamond)
+{
+    diamond += 1;
+    this->_energyPoint = 120;
+    this->_maxEnergyPoint = 120;
+    this->_meleeAttackDmg = 60;
+    this->_rangedAttackDmg = 5;
+    this->_armorDmgReduction = 0;
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const & src)
@@ -72,6 +83,12 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & src)
     this->_rangedAttackDmg = src._rangedAttackDmg;
     this->_armorDmgReduction = src._armorDmgReduction;
     return (*this);
+}
+
+void    NinjaTrap::meleeAttack(std::string const & target)
+{
+    std::cout << this->_name << " attacks " << target << " like a true ninja at melee, causing " << this->_meleeAttackDmg << " points of damage!" << std::endl;
+    return;
 }
 
 void    NinjaTrap::ninjaShoebox(ClapTrap& target)

@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "AWeapon.hpp"
 
-class PowerFist
+class PowerFist : public AWeapon
 {
 
 	public:
@@ -13,12 +14,13 @@ class PowerFist
 		PowerFist( PowerFist const & src );
 		~PowerFist();
 
+		void	attack(void) const;
 		PowerFist &		operator=( PowerFist const & rhs );
 
 	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, PowerFist const & i );
+// std::ostream &			operator<<( std::ostream & o, PowerFist const & i );
 
 #endif /* ******************************************************* POWERFIST_H */

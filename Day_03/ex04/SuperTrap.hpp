@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 11:55:00 by mandric           #+#    #+#             */
-/*   Updated: 2021/03/24 16:29:22 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 12:39:48 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "NinjaTrap.hpp"
 
 
-class SuperTrap : public FragTrap, public NinjaTrap
+class SuperTrap : public NinjaTrap, public FragTrap
 {
 public:
     SuperTrap();
@@ -26,4 +26,8 @@ public:
     virtual ~SuperTrap();
 
     SuperTrap &         operator=(SuperTrap const & src);
+
+
+    void                rangedAttack(std::string const & target);
+    void                meleeAttack(std::string const & target);
 };

@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 09:29:58 by mandric           #+#    #+#             */
-/*   Updated: 2021/03/22 13:04:04 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 13:43:39 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 int main(void)
 {
-    FragTrap tony = FragTrap("Tony");
+    FragTrap tony("Tony");
+
+
 
     tony.beRepaired(50);
     tony.vaulthunter_dot_exe("Frank");
@@ -63,6 +65,8 @@ int main(void)
     SuperTrap jean = SuperTrap("Jean");
     jean.ninjaShoebox(tony);
     jean.vaulthunter_dot_exe("JUJUJ");
+    jean.rangedAttack("OTO");
+    jean.meleeAttack("OTO");
 
     return(0);
 }

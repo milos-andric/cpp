@@ -6,7 +6,7 @@
 /*   By: mandric <mandric@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 09:29:55 by mandric           #+#    #+#             */
-/*   Updated: 2021/03/24 13:35:28 by mandric          ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 09:16:12 by mandric          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 FragTrap::FragTrap(std::string name) : _name(name)
 {
+    std::cout << "constructor name called" << std::endl;
     std::string tabPhrase[5] = {"Hi ! Sooooo... how are things?", "Bootup sequence Completed! Who's up for Beer Pong???", "Hey, best friend!", "Let me teach you the ways of magic!", "Directive one: Protect humanity!"};
     
     this->_hitPoint = 100;
@@ -31,6 +32,7 @@ FragTrap::FragTrap(std::string name) : _name(name)
 
 FragTrap::FragTrap()
 {
+    std::cout << "constructor basic called" << std::endl;
     int num = this->randomizer(99999);
     std::string randName = std::to_string(num);
     randName = "Robot_" + randName;
@@ -53,6 +55,7 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(FragTrap const & src)
 {
+    std::cout << "copy constructor called" << std::endl;
     *this = src;
     return;
 }
@@ -73,6 +76,7 @@ FragTrap & FragTrap::operator=(FragTrap const & src)
 
 FragTrap::~FragTrap()
 {
+    std::cout << "destructor called" << std::endl;
     return;
 }
 
