@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat() : _name("bertrand")
 	_grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string name, unsigned char grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	
 	if (grade <= 0)
@@ -60,7 +60,7 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Bureaucrat::change_grade(unsigned char lvl)
+void				Bureaucrat::change_grade(int lvl)
 {
 	if (lvl <= 0)
 		throw Bureaucrat::GradeTooHighException();
@@ -79,6 +79,20 @@ void				Bureaucrat::dec_lvl(void)
 	this->change_grade(this->_grade + 1);
 }
 
+void				Bureaucrat::signForm(Form & f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << _name << " signs " << f.getName();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " cannot sign " << f.getName() << " because " << e.what();
+	}
+	
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
@@ -89,7 +103,7 @@ std::string 		Bureaucrat::getName() const
 	return(_name);
 }
 
-unsigned char 		Bureaucrat::getGrade() const
+int			 		Bureaucrat::getGrade() const
 {
 	return(_grade);
 }

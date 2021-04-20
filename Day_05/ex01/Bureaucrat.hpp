@@ -4,24 +4,30 @@
 # include <iostream>
 # include <string>
 
+# include "Form.hpp"
+
+class Form;
+
 class Bureaucrat : public std::exception
 {
 
 	public:
 
 		Bureaucrat();
-		Bureaucrat(std::string name, unsigned char grade);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const & src);
 		virtual ~Bureaucrat() _NOEXCEPT;
 
 		std::string			getName() const;
-		unsigned char		getGrade() const;
+		int					getGrade() const;
 
 		Bureaucrat &		operator=(Bureaucrat const & rhs);
-		void				change_grade(unsigned char lvl);
+		void				change_grade(int lvl);
 
 		void				inc_lvl(void);
 		void				dec_lvl(void);
+
+		void				signForm(Form & f);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -42,7 +48,7 @@ class Bureaucrat : public std::exception
 	private:
 
 		std::string	const 	_name;
-		unsigned int		_grade;
+		int					_grade;
 
 };
 
