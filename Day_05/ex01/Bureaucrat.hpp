@@ -41,7 +41,7 @@ class Bureaucrat : public std::exception
 		{
 			const char * what () const throw ()
 			{
-				return "Lol too low";
+				return "too low";
 			}
 		};
 
