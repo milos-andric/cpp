@@ -18,6 +18,7 @@ class Bureaucrat
 		int					getGrade() const;
 
 		Bureaucrat &		operator=(Bureaucrat const & rhs);
+		
 		void				change_grade(int lvl);
 
 		void				inc_lvl(void);

@@ -28,8 +28,12 @@ int main(void)
     jean.executeForm(robo);
     jean.executeForm(robo);
     jean2.executeForm(robo);
+    
+    //checking already signed protection
+    
+    jean2.signForm(robo);
 
-    std::cout << "\nPresident check :\n";
+    std::cout << "\n\nPresident check :\n";
 
     jean2.executeForm(pres);
     jean.executeForm(pres);

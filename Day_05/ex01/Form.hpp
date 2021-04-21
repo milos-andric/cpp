@@ -13,7 +13,6 @@ class Form
 
 	public:
 
-		Form();
 		Form(std::string name, int sign, int exec);
 		Form( Form const & src );
 		virtual ~Form() _NOEXCEPT;
@@ -53,6 +52,7 @@ class Form
 
 	private:
 
+		Form();
 		std::string const		_name;
 		bool 					_signed;
 	 	int const				_sign_lvl;
