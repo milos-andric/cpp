@@ -23,18 +23,44 @@
 //     Thierry.signForm(formulaire);
 //     std::cout << std::endl << "grade : " << n1 << " f-lvl : " << n2 << ", " << n3 << std::endl;
 // }
+
 # include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 int main(void)
 {
-    Bureaucrat jean = Bureaucrat("Jean", 15);
+    Bureaucrat jean = Bureaucrat("Jean", 3);
     Bureaucrat jean2 = Bureaucrat("Jea21n", 150);
-    // // Bureaucrat fab = Bureaucrat("Fab", 0);
-    ShrubberyCreationForm lol("Form name");
-    jean2.executeForm(lol);
-    jean.executeForm(lol);
-    jean.signForm(lol);
-    jean.executeForm(lol);
-    jean2.executeForm(lol);
+
+    ShrubberyCreationForm shru("Frankie");
+    RobotomyRequestForm robo("Fred");
+    PresidentialPardonForm pres("Francis");
+
+    jean2.executeForm(shru);
+    jean.executeForm(shru);
+    jean.signForm(shru);
+    jean.executeForm(shru);
+    jean2.executeForm(shru);
+
+    std::cout << "\nrobotomy check :\n";
+
+    jean2.executeForm(robo);
+    jean.executeForm(robo);
+    jean.signForm(robo);
+    jean.executeForm(robo);
+    jean.executeForm(robo);
+    jean2.executeForm(robo);
+
+    std::cout << "\nPresident check :\n";
+
+    jean2.executeForm(pres);
+    jean.executeForm(pres);
+    jean.signForm(pres);
+    jean.executeForm(pres);
+    jean.executeForm(pres);
+    jean2.executeForm(pres);
+
     // //Fucking up high and low grade
 
     // try_test_f(-1,70);

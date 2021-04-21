@@ -12,7 +12,6 @@ class ShrubberyCreationForm : public Form
 
 	public:
 
-		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string name);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		virtual ~ShrubberyCreationForm() _NOEXCEPT;
@@ -20,6 +19,8 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
 	private:
+
+		ShrubberyCreationForm();
 
 		void	action(Bureaucrat const & executor) const;
 };
