@@ -1,33 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-// void    try_test_f(int n1, int n2)
-// {
-//     try
-// 	{
-//         std::cout << n1 << ", " << n2 << std::endl;
-//         Form thierry("Thierry", n1, n2);
-//         std::cout << "\tSuccess" << std::endl;
-//     }
-// 	catch(const std::exception& e)
-// 	{
-//         std::cout << "\t" ;
-// 		std::cerr << e.what() << "\n\n";
-// 	}
-// }
-
-// void    try_test_s(int n1, int n2, int n3)
-// {
-//     Bureaucrat Thierry("Thierry", n1);
-//     Form formulaire("Formulaire", n2, n3);
-//     Thierry.signForm(formulaire);
-//     std::cout << std::endl << "grade : " << n1 << " f-lvl : " << n2 << ", " << n3 << std::endl;
-// }
-
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "PresidentialPardonForm.hpp"
-# include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
