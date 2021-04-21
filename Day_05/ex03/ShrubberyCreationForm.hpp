@@ -16,6 +16,8 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		virtual ~ShrubberyCreationForm() _NOEXCEPT;
 
+		std::string	getTarget(void) const;
+
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
 	private:
@@ -23,8 +25,8 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm();
 
 		void	action(Bureaucrat const & executor) const;
-};
 
-// std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
+		std::string		_target;
+};
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

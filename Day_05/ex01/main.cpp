@@ -27,10 +27,6 @@ void    try_test_s(int n1, int n2, int n3)
 int main(void)
 {
     Bureaucrat jean = Bureaucrat("Jean", 15);
-    // Bureaucrat fab = Bureaucrat("Fab", 0);
-    Form lol("Form name", 140, 145);
-    
-    //Fucking up high and low grade
 
     try_test_f(-1,70);
     try_test_f(0,70);
@@ -59,5 +55,14 @@ int main(void)
     try_test_s(150, 149, 70);
     try_test_s(1, 2, 70);
     try_test_s(2, 1, 70);
+
+    Bureaucrat Thierry("Thierry", 30);
+    Form formulaire("Formulaire", 40, 50);
+    Thierry.signForm(formulaire);
+    std::cout << std::endl << "grade : " << 30 << " f-lvl : " << 40 << ", " << 50 << std::endl;
+    Thierry.signForm(formulaire);
+    std::cout << std::endl << "grade : " << 30 << " f-lvl : " << 40 << ", " << 50 << std::endl;
+    
+    std::cout << formulaire << std::endl;
     return(0);
 }

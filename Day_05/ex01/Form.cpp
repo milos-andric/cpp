@@ -20,7 +20,6 @@ Form::Form(std::string name, int sign, int exec) : _name(name), _signed(false), 
 
 Form::Form( const Form & src ) : _name(src._name),  _signed(src._signed), _sign_lvl(src._sign_lvl), _exec_lvl(src._exec_lvl)
 {
-
 }
 
 
@@ -41,14 +40,14 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-
+		this->_signed = rhs.getSignStatus();
 	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << "Form : [" << i.getName() << "] signable by : lvl " << i.getSignLvl() << " and exectuable by minions of lvl " << i.getExecLvl() << "is signed ? : " << i.getSignStatus() << std::endl;
+	o << "Form : [" << i.getName() << "] signable by : lvl " << i.getSignLvl() << " and exectuable by guys of lvl " << i.getExecLvl() << " is signed ? : " << i.getSignStatus() << std::endl;
 	return o;
 }
 
@@ -59,6 +58,8 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 void			Form::beSigned(Bureaucrat & b)
 {
+	if (this->_signed == true)
+		throw AlreadySignedException();
 	if (b.getGrade() <= this->_sign_lvl)
 		this->_signed = true;
 	else

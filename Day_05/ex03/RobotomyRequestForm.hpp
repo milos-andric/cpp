@@ -14,6 +14,8 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm( RobotomyRequestForm const & src );
 		virtual ~RobotomyRequestForm() _NOEXCEPT;
 
+		std::string	getTarget(void) const;
+
 		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
 
 	private:
@@ -21,6 +23,8 @@ class RobotomyRequestForm : public Form
 
 		void	action(Bureaucrat const & executor) const;
 		int     randomizer(int modulo);
+
+		std::string		_target;
 };
 
 // std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );

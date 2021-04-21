@@ -4,16 +4,18 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("default Presidential Pardon form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon Form", 25, 5)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name) : Form(name, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string name) : Form("Presidential Pardon Form", 25, 5)
 {
+	this->_target = name;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form(src)
 {
+	*this = src;
 }
 
 
@@ -34,16 +36,11 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 {
 	if ( this != &rhs )
 	{
-		this->_signed = rhs.getSignStatus();
+		this->_target = rhs.getTarget();
+		this->setSignStatus(rhs.getSignStatus());
 	}
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
 
 
 /*
@@ -53,12 +50,16 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 void	PresidentialPardonForm::action(Bureaucrat const & executor) const
 {
 	(void)executor;
-	std::cout << _name << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	PresidentialPardonForm::getTarget(void) const
+{
+	return(this->_target);
+}
 
 /* ************************************************************************** */

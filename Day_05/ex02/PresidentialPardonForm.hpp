@@ -14,16 +14,17 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		virtual ~PresidentialPardonForm() _NOEXCEPT;
 
+		std::string	getTarget(void) const;
+
 		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
 
 	private:
 
 		PresidentialPardonForm();
 		
-		void	action(Bureaucrat const & executor) const;
+		void			action(Bureaucrat const & executor) const;
 
+		std::string		_target;
 };
-
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );
 
 #endif /* ****************************************** PRESIDENTIALPARDONFORM_H */

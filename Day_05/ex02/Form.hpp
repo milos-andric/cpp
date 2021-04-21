@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form : public std::exception
+class Form
 {
 
 	public:
@@ -24,6 +24,8 @@ class Form : public std::exception
 	 	int				getSignLvl(void) const;
 	 	int				getExecLvl(void) const;
 		bool			getSignStatus(void) const;
+
+		void			setSignStatus(bool status);
 
 		void			beSigned(Bureaucrat & b);
 		void			execute(Bureaucrat const & executor) const;
@@ -52,7 +54,15 @@ class Form : public std::exception
 			}
 		};
 
-	protected:
+		class AlreadySignedException : public std::exception
+		{
+			const char * what () const throw ()
+			{
+				return "already signed";
+			}
+		};
+
+	private:
 
 		std::string const		_name;
 		bool 					_signed;

@@ -8,7 +8,7 @@
 
 class Form;
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
 
 	public:

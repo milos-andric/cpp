@@ -59,6 +59,8 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 void			Form::beSigned(Bureaucrat & b)
 {
+	if (this->_signed == true)
+		throw AlreadySignedException();
 	if (b.getGrade() <= this->_sign_lvl)
 		this->_signed = true;
 	else
@@ -96,6 +98,11 @@ int	Form::getExecLvl(void) const
 bool			Form::getSignStatus(void) const
 {
 	return(_signed);
+}
+
+void			Form::setSignStatus(bool status)
+{
+	this->_signed = status;
 }
 
 /* ************************************************************************** */

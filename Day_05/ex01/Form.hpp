@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form : public std::exception
+class Form
 {
 
 	public:
@@ -40,6 +40,14 @@ class Form : public std::exception
 			const char * what () const throw ()
 			{
 				return "too low";
+			}
+		};
+
+		class AlreadySignedException : public std::exception
+		{
+			const char * what () const throw ()
+			{
+				return "already signed";
 			}
 		};
 

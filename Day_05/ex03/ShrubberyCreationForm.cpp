@@ -11,10 +11,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("default Shrubbbbery form"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : Form(name, 145, 137)
 {
+	this->_target = name;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : Form(src)
 {
+	*this = src;
 }
 
 
@@ -35,7 +37,8 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 {
 	if ( this != &rhs )
 	{
-		this->_signed = rhs.getSignStatus();
+		this->_target = rhs.getTarget();
+		this->setSignStatus(rhs.getSignStatus());
 	}
 	return *this;
 }
@@ -54,7 +57,7 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 void					ShrubberyCreationForm::action(Bureaucrat const & executor) const
 {
 	(void)executor;
-	std::ofstream outfile(_name + "_shrubbery.txt");
+	std::ofstream outfile(_target + "_shrubbery.txt");
 
 	outfile << "	        _-_		" << std::endl;
 	outfile << "	     /~~   ~~\\		" << std::endl;
@@ -72,5 +75,9 @@ void					ShrubberyCreationForm::action(Bureaucrat const & executor) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	ShrubberyCreationForm::getTarget(void) const
+{
+	return(this->_target);
+}
 
 /* ************************************************************************** */

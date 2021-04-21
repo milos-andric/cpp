@@ -10,10 +10,12 @@ RobotomyRequestForm::RobotomyRequestForm() : Form("default Robotomy form", 72, 4
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name) : Form(name, 72, 45)
 {
+	this->_target = name;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form(src)
 {
+	*this = src;
 }
 
 
@@ -34,16 +36,11 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 {
 	if ( this != &rhs )
 	{
-		this->_signed = rhs.getSignStatus();
+		this->_target = rhs.getTarget();
+		this->setSignStatus(rhs.getSignStatus());
 	}
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
 
 
 /*
@@ -62,13 +59,17 @@ void	RobotomyRequestForm::action(Bureaucrat const & executor) const
 	(void)executor;
 	std::cout << "*BZzZzzzzzzz ZzzzzZZzzZZzzzzz* : ";
 	if (res)
-		std::cout << _name << " has been sucessfully robotomized !" << std::endl;
+		std::cout << _target << " has been sucessfully robotomized !" << std::endl;
 	else
-		std::cout << _name << " did not robotomize correctly..." << std::endl;
+		std::cout << _target << " did not robotomize correctly..." << std::endl;
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	RobotomyRequestForm::getTarget(void) const
+{
+	return(this->_target);
+}
 
 /* ************************************************************************** */
