@@ -5,16 +5,23 @@
 # include <string>
 # include <cmath>
 # include <cfloat>
+# include <cstdlib>
 
+class NonPrintableException : public std::exception{
+    const char * what () const throw ()
+    {
+        return "Non displayable character";
+    }
+};
 void    display_char(double num)
 {
     char car = static_cast<char>(num);
-    
+
     std::cout << "char =\t\t" ;
 
     if (std::isnan(num) || std::isinf(num))
         std::cout << "impossible" << std::endl;
-    else if (!isprint(car))   
+    else if (!isprint(car))
         std::cout << "Non displayable" << std::endl;
     else
         std::cout << car << std::endl;
@@ -23,7 +30,7 @@ void    display_char(double num)
 void    display_int(double num)
 {
     int car = static_cast<int>(num);
-    
+
     std::cout << "int =\t\t" ;
 
     if (std::isnan(num) || std::isinf(num))
@@ -35,25 +42,35 @@ void    display_int(double num)
 void    display_float(double num)
 {
     float car = static_cast<float>(num);
-    
+
     std::cout << "float =\t\t" ;
 
     std::cout << std::setprecision(7);
     if ((car - static_cast<int>(car)) == 0)
         std::cout << car << ".0f" << std::endl;
     else
-        std::cout << car << "f" << std::endl;       
+        std::cout << car << "f" << std::endl;
 }
 
 void    display_double(double num)
-{   
+{
     std::cout << "double =\t" ;
 
     std::cout << std::setprecision(15);
     if ((num - static_cast<int>(num)) == 0)
         std::cout << num << ".0" << std::endl;
     else
-        std::cout << num << std::endl;       
+        std::cout << num << std::endl;
+}
+
+int     check_print_str(std::string s)
+{
+    for(int i = 0; s[i] != '\0'; i++)
+    {
+        if (!(isprint(s[i])))
+            return(0);
+    }
+    return(1);
 }
 
 void    displayer(std::string s)
@@ -62,13 +79,13 @@ void    displayer(std::string s)
 
     if ((s.size() == 1) && (isprint(s[0]) && (!(isdigit(s[0])))))
         num = s[0];
-    else if (!(isprint(s[0])))
+    else if (!(check_print_str(s)))
     {
-        std::cout << "Give printable character at least..." << std::endl;
+        throw NonPrintableException();
         return;
-    }    
+    }
     else
-        num = stod(s);
+        num = atof(s.c_str());
     display_char(num);
     display_int(num);
     display_float(num);
@@ -81,10 +98,15 @@ void    converter(std::string s)
     {
         displayer(s);
     }
+    catch(const NonPrintableException& e)
+    {
+        std::cout << "give printable characters at least..." << std::endl;
+    }
     catch(const std::exception& e)
     {
         converter("nan");
     }
+
 }
 
 
@@ -107,16 +129,17 @@ int main(int argc, char **argv)
 // void    test_conv(std::string s)
 // {
 //     std::cout << s << std::endl << std::endl;
-
+//
 //     converter(s);
 //     std::cout << std::endl;
 // }
-
+//
 // int main(void)
 // {
 //     test_conv("0");
 //     test_conv("42");
 //     test_conv("42.0");
+//     test_conv("42.0f");
 //     test_conv("42.042");
 //     test_conv("-42");
 //     test_conv("-42.042");
@@ -133,5 +156,5 @@ int main(int argc, char **argv)
 //     test_conv("----25fsdf5");
 
 
-//     return(0);
-// }
+    return(0);
+}
