@@ -13,6 +13,7 @@ class NonPrintableException : public std::exception{
         return "Non displayable character";
     }
 };
+
 void    display_char(double num)
 {
     char car = static_cast<char>(num);

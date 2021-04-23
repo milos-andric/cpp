@@ -1,8 +1,4 @@
-# include <ctime>
-# include <cstdlib>
 # include <iostream>
-# include <iomanip>
-# include <string>
 
 class Base
 {
@@ -60,8 +56,7 @@ void identify_from_pointer(Base * p)
         std::cout << "finding A" << std::endl;
     }
     catch(const std::exception& e)
-    {
-    }
+    {}
 
     try
     {
@@ -70,8 +65,7 @@ void identify_from_pointer(Base * p)
         std::cout << "finding B" << std::endl;
     }
     catch(const std::exception& e)
-    {
-    }
+    {}
 
     try
     {
@@ -80,8 +74,7 @@ void identify_from_pointer(Base * p)
         std::cout << "finding C" << std::endl;
     }
     catch(const std::exception& e)
-    {
-    }
+    {}
 }
 
 int main(void)
