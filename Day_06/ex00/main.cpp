@@ -3,8 +3,8 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
-# include <cmath>
-# include <cfloat>
+# include <math.h>
+# include <float.h>
 # include <cstdlib>
 
 class NonPrintableException : public std::exception{
@@ -19,7 +19,7 @@ void    display_char(double num)
 
     std::cout << "char =\t\t" ;
 
-    if (std::isnan(num) || std::isinf(num))
+    if (isnan(num) || isinf(num))
         std::cout << "impossible" << std::endl;
     else if (!isprint(car))
         std::cout << "Non displayable" << std::endl;
@@ -33,7 +33,7 @@ void    display_int(double num)
 
     std::cout << "int =\t\t" ;
 
-    if (std::isnan(num) || std::isinf(num))
+    if (isnan(num) || isinf(num))
         std::cout << "impossible" << std::endl;
     else
         std::cout << car << std::endl;
@@ -154,7 +154,7 @@ int main(int argc, char **argv)
 //     test_conv("askdjhvasd");
 //     test_conv("2030asdf305");
 //     test_conv("----25fsdf5");
-
-
-    return(0);
-}
+//
+//
+//     return(0);
+// }
