@@ -1,35 +1,58 @@
 #include <iostream>
+#include "iter.hpp"
 
-template< typename T>
-void swap(T & a, T & b)
+void	string_display( std::string const &data )
 {
-    T temp;
-    temp = a;
-    a = b;
-    b = temp;
+	std::cout << T_N T_GYHID "from main displayer: " T_N T_BB;
+	std::cout << data << T_N << std::endl;
 }
 
-template< typename T>
-T   min(T & a, T & b)
+void	float_display( float const &data )
 {
-    return(a < b ? a : b);
+	std::cout << T_N T_GYHID "from main displayer: " T_N T_BB;
+	std::cout << data << T_N << std::endl;
 }
 
-template< typename T>
-T   max(T & a, T & b)
+void	char_display( char const &data )
 {
-    return(a > b ? a : b);
+	std::cout << T_N T_GYHID "from main displayer: " T_N T_BB;
+	std::cout << data << T_N << std::endl;
 }
 
-int main(void)
+int		main( void )
 {
-    //Swap
-    int x = 2, y = 5;
+	// String type
+	std::cout << T_GN "Testing string type" T_N << std::endl;
+	std::string greetings[3] = {"Hello sunny world!", "Good morning!", "YOOO!"};
 
-    swap<int>(x, y);
-    std::cout << "x : " << x << std::endl << "y : " << y << std::endl;
-    //Min
+	std::cout << T_GYB << "Testing iter, taking a string, with an instantiated function template as a third parameter" T_N << std::endl;
+	iter(greetings, 3, print); // Instantiating displayer template, by iter template
 
+	std::cout << T_GYB << "Testing iter, taking a string, with a main function as a third parameter" T_N << std::endl;
+	iter(greetings, 3, &string_display); // Instantiating iter template with string_display function
+	std::cout << std::endl;
 
-    //Max
+	// Float type
+	std::cout << T_GN "Testing float type" T_N << std::endl;
+	float floats[6] = {0.0, 1.1, 2.2, 3.3, 4.4, 5.5};
+
+	std::cout << T_GYB << "Testing iter, taking a float, with an instantiated function template as a third parameter" T_N << std::endl;
+	iter(floats, 6, print); // Instantiating displayer template, by iter template
+
+	std::cout << T_GYB << "Testing iter, taking a float, with a main function as a third parameter" T_N << std::endl;
+	iter(floats, 6, &float_display); // Instantiating iter template with float_display function
+	std::cout << std::endl;
+
+	// Char type
+	std::cout << T_GN "Testing char type" T_N << std::endl;
+	char chars[5] = {'s', 'u', 'n', 'n', 'y'};
+
+	std::cout << T_GYB << "Testing iter, taking a char, with an instantiated function template as a third parameter" T_N << std::endl;
+	iter(chars, 5, print); // Instantiating displayer template, by iter template
+
+	std::cout << T_GYB << "Testing iter, taking a char, with a main function as a third parameter" T_N << std::endl;
+	iter(chars, 5, &char_display); // Instantiating iter template with char_display function
+	std::cout << std::endl;
+
+	return (0);
 }
