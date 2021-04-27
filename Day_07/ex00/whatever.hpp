@@ -2,8 +2,8 @@
 template< typename T>
 void swap(T & a, T & b)
 {
-    T temp;
-    temp = a;
+    T temp(a);
+    // temp = a;
     a = b;
     b = temp;
 }
@@ -15,7 +15,19 @@ T   min(T & a, T & b)
 }
 
 template< typename T>
+T   min(T const & a, T const & b)
+{
+    return(a < b ? a : b);
+}
+
+template< typename T>
 T   max(T & a, T & b)
+{
+    return(a > b ? a : b);
+}
+
+template< typename T>
+T   max(T const & a, T const & b)
 {
     return(a > b ? a : b);
 }

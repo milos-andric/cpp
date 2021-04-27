@@ -34,7 +34,7 @@ int		main( void )
 
 	// Float type
 	std::cout << T_GN "Testing float type" T_N << std::endl;
-	float floats[6] = {0.0, 1.1, 2.2, 3.3, 4.4, 5.5};
+	float floats[6] = { 0.0f, 1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
 
 	std::cout << T_GYB << "Testing iter, taking a float, with an instantiated function template as a third parameter" T_N << std::endl;
 	iter(floats, 6, print); // Instantiating displayer template, by iter template

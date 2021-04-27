@@ -1,10 +1,35 @@
-NAME = array
+NAME = main
+EXEC = array
+CC        =    clang++ -Wall -Wextra -Werror -O3 -g3 -std=c++98 -Wconversion
 
-COMP = clang++
+# CLASS = whatever
 
-FLAGS = -Wall -Werror -Wextra
+SRCC = $(addsuffix .cpp,$(CLASS))
+# INCC = $(CLASS).hpp
 
-SRCS = main.cpp
+# OBJC    =    $(SRCC:%.cpp=%.o)
+# LIB = $(NAME).a
 
-$(NAME) : $(SRCS)
-	$(COMP) $(FLAGS) $(SRCS) -o $(NAME)
+all:	$(NAME)
+
+
+%.o:	%.cpp
+	$(CC) -o $@ -c $<
+
+$(NAME):	Makefile
+	$(CC) $(NAME).cpp  -I. $(SRCC) -o $(EXEC)
+
+test:	re $(NAME)
+	./$(EXEC)
+
+clean:
+	@rm -f $(OBJC)
+
+fclean:		clean
+	@rm -f $(NAME)
+
+bonus:	all
+
+re: fclean all
+
+.PHONY:    all clean fclean re bonus test
