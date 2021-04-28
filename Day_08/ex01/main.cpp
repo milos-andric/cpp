@@ -1,33 +1,29 @@
-#include "Span.hpp"
+#include "span.hpp"
 
-// void test(void)
-// {
-//
-// }
 
-int main(int argc, char const *argv[]) {
+int main(void) {
 
-    Span lol(0);
+    Span test(5);
     try
     {
-        lol.addNumber(5);
-        lol.addNumber(2);
-        lol.addNumber(6);
-        lol.addNumber(8);
-        lol.addNumber(9);
+        test.addNumber(5);
+        test.addNumber(2);
+        test.addNumber(6);
+        test.addNumber(8);
+        test.addNumber(9);
     }
     catch(std::exception const& e)
     {
-        std::cout << "lol" << '\n';
+        std::cout << "test" << '\n';
     }
-    lol.print();
+    test.print();
     try {
-    std::cout << lol.shortestSpan() << std::endl;
-    std::cout << lol.longestSpan() << std::endl;
+    std::cout << test.shortestSpan() << std::endl;
+    std::cout << test.longestSpan() << std::endl;
     }
     catch(std::exception const& e)
     {
-        std::cout << "lol" << '\n';
+        std::cout << "test" << '\n';
     }
     return 0;
 }

@@ -1,7 +1,7 @@
 # pragma once
 
 template < typename T>
-int   easyfind(T cont, int nbr)
+int   easyFind(T cont, int nbr)
 {
     typename T::iterator it;
 

@@ -1,4 +1,4 @@
-#include "Span.hpp"
+#include "span.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -67,7 +67,7 @@ int 	Span::shortestSpan(void)
 {
 	if (_size <= 1)
 		throw	NoNumbersException();
-	int diff = 1000000; // changer pour longest span
+	int diff = this->longestSpan(); // changer pour longest span
 	std::multiset<int>::iterator it;
 	std::multiset<int>::iterator it2;
 	it = _set.begin();
