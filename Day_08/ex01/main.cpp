@@ -1,29 +1,145 @@
 #include "span.hpp"
+#include <iostream>
+#include <vector>
 
+// int main(void) {
 
-int main(void) {
+//     Span test(5);
+//     try
+//     {
+//         test.addNumber(5);
+//         test.addNumber(2);
+//         test.addNumber(6);
+//         test.addNumber(8);
+//         test.addNumber(9);
+//     }
+//     catch(std::exception const& e)
+//     {
+//         std::cout << "test" << '\n';
+//     }
+//     test.print();
+//     try {
+//     std::cout << test.shortestSpan() << std::endl;
+//     std::cout << test.longestSpan() << std::endl;
+//     }
+//     catch(std::exception const& e)
+//     {
+//         std::cout << "test" << '\n';
+//     }
+//     return 0;
+// }
+int main()
+{
+    // FULL SPAN
+    Span sp_full = Span(2);
 
-    Span test(5);
+    sp_full.addNumber(5);
+    sp_full.addNumber(8);
+    
     try
     {
-        test.addNumber(5);
-        test.addNumber(2);
-        test.addNumber(6);
-        test.addNumber(8);
-        test.addNumber(9);
+        sp_full.addNumber(9);     
     }
-    catch(std::exception const& e)
+    catch(const std::exception& e)
     {
-        std::cout << "test" << '\n';
+        std::cerr << "Error : " << e.what() <<  std::endl;
     }
-    test.print();
-    try {
-    std::cout << test.shortestSpan() << std::endl;
-    std::cout << test.longestSpan() << std::endl;
-    }
-    catch(std::exception const& e)
+    
+    Span sp_short = Span(5);
+    sp_short.addNumber(5);
+    sp_short.addNumber(3);
+    sp_short.addNumber(17);
+    sp_short.addNumber(-8925);
+    sp_short.addNumber(11);
+
+    std::cout << sp_short.shortestSpan() << std::endl;
+
+    std::cout <<"lol"<<std::endl;
+    Span sp_short_hard = Span(2);
+    sp_short_hard.addNumber(2147483647);
+    sp_short_hard.addNumber(-2147483648);
+
+    std::cout << sp_short_hard.shortestSpan() << std::endl;
+
+    Span sp_empty = Span(80);
+    
+    try
     {
-        std::cout << "test" << '\n';
+        std::cout << sp_empty.shortestSpan() << std::endl;
     }
-    return 0;
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    sp_empty.addNumber(5);
+
+    try
+    {
+        std::cout << sp_empty.shortestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    Span sp_long = Span(4);
+    sp_long.addNumber(8);
+    sp_long.addNumber(-3);
+    sp_long.addNumber(80);
+    sp_long.addNumber(-8);
+
+    try
+    {
+        std::cout << sp_long.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    Span sp_long_hard = Span(4);
+    sp_long_hard.addNumber(2147483647);
+    sp_long_hard.addNumber(-2147483648);
+
+    try
+    {
+        std::cout << sp_long_hard.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    try
+    {
+        std::cout << sp_empty.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    Span sp_long_long = Span(50000);
+    std::vector<int> range(50000, 10);
+    range[3256] = 40;
+    sp_long_long.addNumber(range.begin(), range.end());
+
+    try
+    {
+        std::cout << sp_long_long.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    try
+    {
+        std::cout << sp_long_long.shortestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
 }

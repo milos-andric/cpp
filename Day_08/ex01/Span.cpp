@@ -63,11 +63,11 @@ void 	Span::print(void)
 	return;
 }
 
-int 	Span::shortestSpan(void)
+long 	Span::shortestSpan(void)
 {
-	if (_size <= 1)
+	if (_set.size() <= 1)
 		throw	NoNumbersException();
-	int diff = this->longestSpan(); // changer pour longest span
+	long diff = this->longestSpan(); // changer pour longest span
 	std::multiset<int>::iterator it;
 	std::multiset<int>::iterator it2;
 	it = _set.begin();
@@ -83,9 +83,9 @@ int 	Span::shortestSpan(void)
 	return(diff);
 }
 
-int		Span::longestSpan(void)
+long	Span::longestSpan(void)
 {
-	if (_size <= 1)
+	if (_set.size() <= 1)
 		throw	NoNumbersException();
 	std::multiset<int>::iterator it;
 	std::multiset<int>::iterator it2;
