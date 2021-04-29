@@ -18,15 +18,15 @@ class Span
 		void 	addNumber(int num);
 		void 	print(void);
 
-		long		shortestSpan(void);
-		long		longestSpan(void);
+		unsigned long		shortestSpan(void);
+		unsigned long		longestSpan(void);
 
 
 		std::multiset<int> 		getSet(void) const;
 		unsigned int			getSize(void) const;
 
 		template < class Iterator >
-        void        addNumber(Iterator begin, Iterator end)
+        void       addNumber(Iterator begin, Iterator end)
         {
             if (end - begin <= _size)
                 std::copy(begin, end, std::inserter(_set, _set.begin()));

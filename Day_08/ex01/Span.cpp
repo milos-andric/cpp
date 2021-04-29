@@ -63,27 +63,33 @@ void 	Span::print(void)
 	return;
 }
 
-long 	Span::shortestSpan(void)
+unsigned long 	Span::shortestSpan(void)
 {
 	if (_set.size() <= 1)
 		throw	NoNumbersException();
-	long diff = this->longestSpan(); // changer pour longest span
+
+	unsigned long diff = this->longestSpan();
+	unsigned long temp;
+
 	std::multiset<int>::iterator it;
 	std::multiset<int>::iterator it2;
+
 	it = _set.begin();
 	it2 = it;
 	it2++;
+
 	while(it2 != _set.end())
 	{
-		if ((*it2 - *it) < diff)
-			diff = (*it2 - *it);
+		temp = static_cast<unsigned long>(static_cast<long>(*it2) - static_cast<long>(*it));
+		if (temp < diff)
+			diff = temp;
 		it++;
 		it2++;
 	}
 	return(diff);
 }
 
-long	Span::longestSpan(void)
+unsigned long	Span::longestSpan(void)
 {
 	if (_set.size() <= 1)
 		throw	NoNumbersException();
@@ -92,7 +98,7 @@ long	Span::longestSpan(void)
 	it = _set.begin();
 	it2 = _set.end();
 	it2--;
-	return(*it2 - *it);
+	return(static_cast<unsigned long>(static_cast<long>(*it2) - static_cast<long>(*it)));
 
 }
 

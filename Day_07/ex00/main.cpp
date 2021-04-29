@@ -58,7 +58,6 @@ int main(void)
   std::cout << "min(i1,i2) : " << min(i1, i2) << std::endl;
   std::cout << "max(i1,i2) : " << max(i1, i2) << std::endl;
 
-
   std::cout << '\n' << "char : " << '\n';
   char c1 = 'a';
   char d1 = 't';
